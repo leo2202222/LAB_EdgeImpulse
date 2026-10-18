@@ -1,0 +1,179 @@
+{
+    "version": 1,
+    "author": "Anonymous maker",
+    "editor": "wokwi",
+    "parts": [
+        {
+            "type": "board-esp32-s3-devkitc-1",
+            "id": "esp",
+            "top": -0.18,
+            "left": -14.63,
+            "attrs": {}
+        },
+        {
+            "type": "wokwi-led",
+            "id": "led1",
+            "top": -13.2,
+            "left": -121,
+            "attrs": {
+                "color": "red"
+            }
+        },
+        {
+            "type": "wokwi-mpu6050",
+            "id": "imu1",
+            "top": 205.42,
+            "left": -160.88,
+            "attrs": {}
+        },
+        {
+            "type": "wokwi-resistor",
+            "id": "r1",
+            "top": 91.2,
+            "left": -144.55,
+            "rotate": 90,
+            "attrs": {
+                "value": "10000"
+            }
+        },
+        {
+            "type": "wokwi-resistor",
+            "id": "r2",
+            "top": 23.15,
+            "left": -86.4,
+            "attrs": {
+                "value": "220"
+            }
+        },
+        {
+            "type": "wokwi-resistor",
+            "id": "r3",
+            "top": 110.4,
+            "left": -115.75,
+            "rotate": 90,
+            "attrs": {
+                "value": "10000"
+            }
+        }
+    ],
+    "connections": [
+        [
+            "esp:TX",
+            "$serialMonitor:RX",
+            "",
+            []
+        ],
+        [
+            "esp:RX",
+            "$serialMonitor:TX",
+            "",
+            []
+        ],
+        [
+            "esp:3V3.1",
+            "r2:2",
+            "red",
+            [
+                "v0"
+            ]
+        ],
+        [
+            "r2:1",
+            "led1:A",
+            "red",
+            [
+                "v0"
+            ]
+        ],
+        [
+            "led1:C",
+            "esp:4",
+            "black",
+            [
+                "v0"
+            ]
+        ],
+        [
+            "esp:3V3.1",
+            "r1:1",
+            "red",
+            [
+                "v-76.8",
+                "h134.35"
+            ]
+        ],
+        [
+            "esp:3V3.1",
+            "r3:1",
+            "red",
+            [
+                "v-76.8",
+                "h-115.25",
+                "v115.2",
+                "h38.4"
+            ]
+        ],
+        [
+            "esp:3V3.1",
+            "imu1:VCC",
+            "red",
+            [
+                "v-76.8",
+                "h-19.25",
+                "v259.2"
+            ]
+        ],
+        [
+            "esp:GND.1",
+            "imu1:GND",
+            "black",
+            [
+                "h-28.85",
+                "v-38.4",
+                "h-57.68"
+            ]
+        ],
+        [
+            "imu1:SDA",
+            "esp:8",
+            "green",
+            [
+                "v-76.8",
+                "h105.73"
+            ]
+        ],
+        [
+            "r1:2",
+            "esp:8",
+            "green",
+            [
+                "v8.4"
+            ]
+        ],
+        [
+            "esp:9",
+            "r3:2",
+            "gold",
+            [
+                "h-76.85"
+            ]
+        ],
+        [
+            "imu1:SCL",
+            "esp:9",
+            "gold",
+            [
+                "v0"
+            ]
+        ],
+        [
+            "imu1:AD0",
+            "esp:5",
+            "magenta",
+            [
+                "v0"
+            ]
+        ]
+    ],
+    "dependencies": {}
+}
